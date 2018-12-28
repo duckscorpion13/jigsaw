@@ -9,7 +9,7 @@
 
 #import <WebKit/WebKit.h>
 
-#import "example-Swift.h"
+#import "jigsaw-Swift.h"
 #import <React/RCTViewManager.h>
 
 @interface RNTBaseManager: RCTViewManager

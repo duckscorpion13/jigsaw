@@ -8,7 +8,7 @@
 //
 #import <WebKit/WebKit.h>
 
-#import "example-Swift.h"
+#import "jigsaw-Swift.h"
 #import <React/RCTViewManager.h>
 
 @interface RNTMenuManager : RCTViewManager
@@ -25,6 +25,6 @@ RCT_EXPORT_MODULE()
   return  [RNTMenu new];
 
 }
-
+RCT_EXPORT_VIEW_PROPERTY(testValue, NSString)
 @end
 

@@ -13,29 +13,50 @@
         <!--MenuVC-->
         <scene sceneID="m3R-9G-au3">
             <objects>
-                <viewController storyboardIdentifier="MenuVC" id="3mR-PZ-o5P" customClass="MenuVC" customModule="example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuVC" id="3mR-PZ-o5P" customClass="MenuVC" customModule="jigsaw" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rkd-Dy-TMA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MenuVC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZE6-9Q-LJr">
-                                <rect key="frame" x="155" y="323" width="65" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xSa-aV-kEh">
+                                <rect key="frame" x="0.0" y="225.5" width="375" height="216"/>
+                            </pickerView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bzl-5l-ilu">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdS-PE-m3a">
+                                <rect key="frame" x="153.5" y="476.5" width="68" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="EmT-yh-6bH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Enter"/>
+                                <connections>
+                                    <action selector="clickAlbum:" destination="3mR-PZ-o5P" eventType="touchUpInside" id="XNF-tR-CK7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ZE6-9Q-LJr" firstAttribute="centerX" secondItem="Rkd-Dy-TMA" secondAttribute="centerX" id="2Rz-lV-0UO"/>
-                            <constraint firstItem="ZE6-9Q-LJr" firstAttribute="centerY" secondItem="Rkd-Dy-TMA" secondAttribute="centerY" id="6Xb-xV-hpM"/>
+                            <constraint firstItem="vdS-PE-m3a" firstAttribute="top" secondItem="xSa-aV-kEh" secondAttribute="bottom" constant="35" id="5Zd-NO-iFg"/>
+                            <constraint firstItem="xSa-aV-kEh" firstAttribute="centerY" secondItem="Rkd-Dy-TMA" secondAttribute="centerY" id="OR9-Yo-jVf"/>
+                            <constraint firstItem="wlZ-EJ-bOP" firstAttribute="bottom" secondItem="bzl-5l-ilu" secondAttribute="bottom" id="UVu-RC-yqN"/>
+                            <constraint firstItem="wlZ-EJ-bOP" firstAttribute="trailing" secondItem="bzl-5l-ilu" secondAttribute="trailing" id="bS7-Uw-nFx"/>
+                            <constraint firstItem="bzl-5l-ilu" firstAttribute="top" secondItem="wlZ-EJ-bOP" secondAttribute="top" id="dq5-9R-m2C"/>
+                            <constraint firstItem="wlZ-EJ-bOP" firstAttribute="trailing" secondItem="xSa-aV-kEh" secondAttribute="trailing" id="g42-B2-U3E"/>
+                            <constraint firstItem="bzl-5l-ilu" firstAttribute="leading" secondItem="wlZ-EJ-bOP" secondAttribute="leading" id="idT-JB-AaF"/>
+                            <constraint firstItem="vdS-PE-m3a" firstAttribute="centerX" secondItem="xSa-aV-kEh" secondAttribute="centerX" id="n2o-dZ-plN"/>
+                            <constraint firstItem="xSa-aV-kEh" firstAttribute="leading" secondItem="Rkd-Dy-TMA" secondAttribute="leading" id="zrX-6q-AMD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wlZ-EJ-bOP"/>
                     </view>
+                    <connections>
+                        <outlet property="pickView" destination="xSa-aV-kEh" id="pOc-Vu-8KM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D1m-qE-2kw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="411" y="116"/>
+            <point key="canvasLocation" x="304.80000000000001" y="-370.16491754122939"/>
         </scene>
     </scenes>
 </document>

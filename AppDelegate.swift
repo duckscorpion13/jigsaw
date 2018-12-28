@@ -11,7 +11,7 @@ import UIKit
 import UserNotifications
 
 
-
+//com.store.lbdapp.jigsaw
 //https://1384308.site123.me/
 let appKey = "c01e5d79127d767cff5c90d4"
 let channel = "Publish channel"
@@ -31,17 +31,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var jsCodeLocation: URL
     
-//    #if DEBUG
-      jsCodeLocation = RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index", fallbackResource:nil)
-//    #else
-//      jsCodeLocation = CodePush.bundleURL()
-//    #endif
+    #if DEBUG
+      jsCodeLocation = RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index", fallbackResource: nil)
+    #else
+      jsCodeLocation = CodePush.bundleURL()
+    #endif
 
     setupJPush(launchOptions)
    
     let appName = Bundle.main.infoDictionary!["CFBundleName"] as? String ?? ""
 
     let rootView = RCTRootView(bundleURL: jsCodeLocation, moduleName: appName, initialProperties: nil, launchOptions: launchOptions)
+    rootView?.appProperties = ["abc" : "abcTest"]
     let rootViewController = UIViewController()
     rootViewController.view = rootView
     
