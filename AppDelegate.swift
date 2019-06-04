@@ -10,12 +10,11 @@ import Foundation
 import UIKit
 import UserNotifications
 
+import Firebase//aladiag
 
-//com.store.lbdapp.jigsaw
-//https://1384308.site123.me/
-let appKey = "c01e5d79127d767cff5c90d4"
-let channel = "Publish channel"
-let isProduction = true
+//let appKey = "c01e5d79127d767cff5c90d4"
+//let channel = "Publish channel"
+//let isProduction = true
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     
-  
+    FirebaseApp.configure()
     
     var jsCodeLocation: URL
     
@@ -50,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.window?.rootViewController = rootViewController
     self.window?.makeKeyAndVisible()
     
-   
+    
     
     return true
   }

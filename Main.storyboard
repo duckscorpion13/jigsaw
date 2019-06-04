@@ -18,28 +18,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xSa-aV-kEh">
-                                <rect key="frame" x="0.0" y="225.5" width="375" height="216"/>
-                            </pickerView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bzl-5l-ilu">
+                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="bzl-5l-ilu">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xSa-aV-kEh">
+                                <rect key="frame" x="0.0" y="205.5" width="375" height="216"/>
+                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdS-PE-m3a">
-                                <rect key="frame" x="153.5" y="476.5" width="68" height="30"/>
+                                <rect key="frame" x="149.5" y="441.5" width="76" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="EmT-yh-6bH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Enter"/>
+                                <state key="normal" title="Photo">
+                                    <color key="titleColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="clickAlbum:" destination="3mR-PZ-o5P" eventType="touchUpInside" id="XNF-tR-CK7"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jigsaw" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Al-S5-Z9z">
+                                <rect key="frame" x="106.5" y="116.5" width="162" height="54"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="45"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tU-m2-Y7S">
+                                <rect key="frame" x="136.5" y="491.5" width="102" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="openCamera:" destination="3mR-PZ-o5P" eventType="touchUpInside" id="PB7-h9-cfY"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="vdS-PE-m3a" firstAttribute="top" secondItem="xSa-aV-kEh" secondAttribute="bottom" constant="35" id="5Zd-NO-iFg"/>
-                            <constraint firstItem="xSa-aV-kEh" firstAttribute="centerY" secondItem="Rkd-Dy-TMA" secondAttribute="centerY" id="OR9-Yo-jVf"/>
+                            <constraint firstItem="xSa-aV-kEh" firstAttribute="top" secondItem="3Al-S5-Z9z" secondAttribute="bottom" constant="35" id="3AS-lA-bzz"/>
+                            <constraint firstItem="3Al-S5-Z9z" firstAttribute="centerX" secondItem="Rkd-Dy-TMA" secondAttribute="centerX" id="3J5-Hc-ZRl"/>
+                            <constraint firstItem="vdS-PE-m3a" firstAttribute="top" secondItem="xSa-aV-kEh" secondAttribute="bottom" constant="20" id="5Zd-NO-iFg"/>
+                            <constraint firstItem="1tU-m2-Y7S" firstAttribute="centerX" secondItem="Rkd-Dy-TMA" secondAttribute="centerX" id="6uq-PX-AjJ"/>
+                            <constraint firstItem="xSa-aV-kEh" firstAttribute="centerY" secondItem="Rkd-Dy-TMA" secondAttribute="centerY" constant="-20" id="OR9-Yo-jVf"/>
+                            <constraint firstItem="1tU-m2-Y7S" firstAttribute="top" secondItem="vdS-PE-m3a" secondAttribute="bottom" constant="20" id="ROx-Wa-CsS"/>
                             <constraint firstItem="wlZ-EJ-bOP" firstAttribute="bottom" secondItem="bzl-5l-ilu" secondAttribute="bottom" id="UVu-RC-yqN"/>
                             <constraint firstItem="wlZ-EJ-bOP" firstAttribute="trailing" secondItem="bzl-5l-ilu" secondAttribute="trailing" id="bS7-Uw-nFx"/>
                             <constraint firstItem="bzl-5l-ilu" firstAttribute="top" secondItem="wlZ-EJ-bOP" secondAttribute="top" id="dq5-9R-m2C"/>
@@ -59,4 +79,7 @@
             <point key="canvasLocation" x="304.80000000000001" y="-370.16491754122939"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg" width="384.48001098632812" height="460.79998779296875"/>
+    </resources>
 </document>

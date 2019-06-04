@@ -13,24 +13,24 @@
 #import <React/RCTViewManager.h>
 
 @interface RNTBaseManager: RCTViewManager
-  @end
+@end
 
 @implementation RNTBaseManager
-  
-  RCT_EXPORT_MODULE()
-  
-  
+
+RCT_EXPORT_MODULE()
+
+
 - (UIView *)view
 {
-    
-    return  [RNTBase new];
-    
+  
+  return  [RNTBase new];
+  
 }
 
 
 RCT_EXPORT_VIEW_PROPERTY(srcUrl, NSString)
 
-  
+
 @end
 
 

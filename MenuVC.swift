@@ -13,11 +13,10 @@ class MenuVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
   
   @IBOutlet weak var pickView: UIPickerView!
   
-  
+  let m_picker = UIImagePickerController()
   let diffcult: [(Int, Int)] = [(3,3), (4,3), (5,3), (6,3),
                                 (4,4), (5,4), (6,4),
-                                (5,5), (6,5),
-                                (6,6)]
+                                (5,5), (6,5)]
   
   var select = (3,3)
   
@@ -29,15 +28,27 @@ class MenuVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
   }
   
-  
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    
   @IBAction func clickAlbum(_ sender: UIButton) {
     self.openAlbumVC()
   }
   
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
+    @IBAction func openCamera(_ sender: Any) {
+     
+      if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+        self.m_picker.sourceType = UIImagePickerController.SourceType.camera
+        self.m_picker.allowsEditing = true // 可對照片作編輯
+        self.m_picker.delegate = self
+        self.present(self.m_picker, animated: true, completion: nil)
+      } else {
+        print("沒有相機鏡頭...") // 用alertView.show
+      }
   }
-  
+   
   func numberOfComponents(in pickerView: UIPickerView) -> Int {
     return 1
   }
@@ -55,6 +66,7 @@ class MenuVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
   
   func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     self.select = self.diffcult[row]
+    print("select\(select.0),\(select.1)")
   }
   /*
    // MARK: - Navigation
@@ -65,6 +77,8 @@ class MenuVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
    // Pass the selected object to the new view controller.
    }
    */
+
+  
   
 }
 
@@ -73,16 +87,15 @@ extension MenuVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
   
   func openAlbumVC() {
     
-    let imagePickerVC = UIImagePickerController()
     
     // 設定相片的來源為行動裝置內的相本
-    imagePickerVC.sourceType = .photoLibrary
-    imagePickerVC.delegate = self
+    self.m_picker.sourceType = .photoLibrary
+    self.m_picker.delegate = self
     
     // 設定顯示模式為popover
-    imagePickerVC.modalPresentationStyle = (UIDevice.current.userInterfaceIdiom
+    self.m_picker.modalPresentationStyle = (UIDevice.current.userInterfaceIdiom
       == .phone) ? .popover : .fullScreen
-    let popover = imagePickerVC.popoverPresentationController
+    let popover = self.m_picker.popoverPresentationController
     // 設定popover視窗與哪一個view元件有關連
     popover?.sourceView = self.view
     
@@ -91,14 +104,19 @@ extension MenuVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
     popover?.permittedArrowDirections = .any
     
     //        show(imagePickerVC, sender: self)
-    self.present(imagePickerVC, animated: true)
+    self.present(self.m_picker, animated: true)
   }
   
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
     
-    let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+    var image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+    if let data = image.jpegData(compressionQuality: 0.1),
+      let img = UIImage(data: data) {
+      image = img
+    }
     //        imgView?.image=image
     self.dismiss(animated: true) {
+       print("use\(self.select.0),\(self.select.1)")
       let vc = GameVC(image: image, row: self.select.0, col: self.select.1)
       self.present(vc, animated: true)
     }

@@ -10,13 +10,19 @@
 class RNTMenu: UIView
 {
   
-  weak var myVC: UIViewController?
-  
-  var config: NSDictionary = [:] {
-    didSet {
-      setNeedsLayout()
+  lazy var myVC: UIViewController? = {
+    guard let parentVC = parentViewController else {
+      return nil
     }
-  }
+  
+    let mystoryboard = UIStoryboard.init(name: "Main", bundle:nil)
+    let vc = mystoryboard.instantiateViewController(withIdentifier: "MenuVC")
+    parentVC.addChild(vc)
+    addSubview(vc.view)
+    vc.view.frame = bounds
+    vc.didMove(toParent: parentVC)
+    return vc
+  }()
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -27,25 +33,7 @@ class RNTMenu: UIView
   {
     super.layoutSubviews()
     
-    if myVC == nil {
-      embed()
-    } else {
-      myVC?.view.frame = bounds
-    }
-  }
-  
-  private func embed()
-  {
-    guard let parentVC = parentViewController else {
-        return
-    }
-    let mystoryboard = UIStoryboard.init(name: "Main", bundle:nil)
-    let vc = mystoryboard.instantiateViewController(withIdentifier: "MenuVC")
-    parentVC.addChild(vc)
-    addSubview(vc.view)
-    vc.view.frame = bounds
-    vc.didMove(toParent: parentVC)
-    self.myVC = vc
+    self.myVC?.view.frame = bounds
   }
 }
 

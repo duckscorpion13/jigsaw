@@ -19,7 +19,7 @@ class Jigsaw {
     
     var gesturesArray = [UISwipeGestureRecognizer]()
     
-    
+    var m_imagesList = [UIImage]()
     
 //    var parent : PlayVC!
     
@@ -39,23 +39,25 @@ class Jigsaw {
     
     func setImageAndAccess(image: UIImage, rowNum: Int, colNum: Int) {
  
-        var imagesList = [UIImage]()
+        let total = rowNum * colNum
+        self.m_imagesList.removeAll()
         let unitWidth = image.size.width / CGFloat(colNum)
         let unitHeight = image.size.height / CGFloat(rowNum)
-        for i in 0 ..< blockSize {
+        for i in 0 ..< total {
             let row = CGFloat(i / colNum)
             let col = CGFloat(i % colNum)
             let rect = CGRect(x: col * unitWidth, y: row * unitHeight, width: unitWidth, height: unitHeight)
             if let subImg = image.subImage(rect) {
-                imagesList.append(subImg)
+                self.m_imagesList.append(subImg)
+              print("total=\(total),i=\(i)")
             }
         }
-        
-        let randomArray = RandomArray.init(max: blockSize)
-        for tag in 1 ..< blockSize {
+        print( self.m_imagesList.count)
+        let randomArray = RandomArray.init(max: self.m_imagesList.count)
+        for tag in 1 ..< self.m_imagesList.count {
             if let imageView : UIImageView = self.parentView.viewWithTag(tag) as? UIImageView {
                 let rand = randomArray.randArray[tag-1]
-                let image : UIImage = imagesList[rand]
+                let image : UIImage = self.m_imagesList[rand]
                 imageView.image = image
                 imageView.image?.accessibilityLabel = "\(rand)"
             }
@@ -63,9 +65,9 @@ class Jigsaw {
         }
         
         
-        if let lastView = self.parentView.viewWithTag(blockSize) as? UIImageView {
+        if let lastView = self.parentView.viewWithTag(total) as? UIImageView {
             lastView.image = UIImage(named: "white")
-            lastView.image?.accessibilityLabel = "\(blockSize)"
+            lastView.image?.accessibilityLabel = "\(total)"
         }
     }
     

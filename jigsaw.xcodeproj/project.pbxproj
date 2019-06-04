@@ -29,6 +29,7 @@
 		F90AD2C721D5C78200726E1F /* RandomArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90AD2C621D5C78200726E1F /* RandomArray.swift */; };
 		F90AD2C921D5C79700726E1F /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90AD2C821D5C79700726E1F /* GameVC.swift */; };
 		F90AD34521D5CEC000726E1F /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90AD34421D5CEBF00726E1F /* MenuVC.swift */; };
+		F90AD3EB21D6186E00726E1F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F90AD3EA21D6186D00726E1F /* GoogleService-Info.plist */; };
 		F929BB9E219418C6007AD0C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F929BB9D219418C6007AD0C9 /* Main.storyboard */; };
 		F929BC9321943402007AD0C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F929BC9221943402007AD0C9 /* LaunchScreen.storyboard */; };
 		F9D0F88421B7D9D100822BC4 /* WkWebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D0F85521B7D9D100822BC4 /* WkWebVC.swift */; };
@@ -357,6 +358,7 @@
 		F90AD2C621D5C78200726E1F /* RandomArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomArray.swift; sourceTree = "<group>"; };
 		F90AD2C821D5C79700726E1F /* GameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
 		F90AD34421D5CEBF00726E1F /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = SOURCE_ROOT; };
+		F90AD3EA21D6186D00726E1F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F929BB9D219418C6007AD0C9 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F929BC9221943402007AD0C9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9D0F85521B7D9D100822BC4 /* WkWebVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WkWebVC.swift; sourceTree = "<group>"; };
@@ -575,6 +577,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				F90AD3EA21D6186D00726E1F /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* example */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
@@ -682,6 +685,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				068A34A614843DD825B5F7E0 /* [CP] Embed Pods Frameworks */,
+				F90AD3EC21D6199800726E1F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -711,6 +715,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1072,6 +1077,7 @@
 			files = (
 				F929BB9E219418C6007AD0C9 /* Main.storyboard in Resources */,
 				F929BC9321943402007AD0C9 /* LaunchScreen.storyboard in Resources */,
+				F90AD3EB21D6186E00726E1F /* GoogleService-Info.plist in Resources */,
 				F9D0F88821B7D9D100822BC4 /* close.png in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -1140,6 +1146,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F90AD3EC21D6199800726E1F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1175,10 +1199,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODEPUSH_KEY = "IN-EKOLp5bjLrlK-1QYQgaZSRRgk6f9ce9cc-8ddd-4fdf-9eb8-65611fa82b03";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = P9EZG3V6S8;
+				DEVELOPMENT_TEAM = QP9VZR24AL;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-wkwebview-reborn/ios/RCTWKWebView",
@@ -1200,9 +1224,9 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lbd.RNProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TrollpoeMarvin.jigsaw;
 				PRODUCT_NAME = jigsaw;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Wildcard-DEV";
 				SWIFT_OBJC_BRIDGING_HEADER = "example-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -1218,10 +1242,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODEPUSH_KEY = "gSMGUGEketiprKX6vUcgQdRjq1Oe6f9ce9cc-8ddd-4fdf-9eb8-65611fa82b03";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P9EZG3V6S8;
+				DEVELOPMENT_TEAM = QP9VZR24AL;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-wkwebview-reborn/ios/RCTWKWebView",
@@ -1242,9 +1266,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lbd.RNProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.TrollpoeMarvin.jigsaw;
 				PRODUCT_NAME = jigsaw;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Wildcard-STORE";
 				SWIFT_OBJC_BRIDGING_HEADER = "example-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

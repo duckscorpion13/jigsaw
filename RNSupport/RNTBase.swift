@@ -13,7 +13,7 @@ class RNTBase: UIView
   @objc var srcUrl = "" {
     didSet {
       if let vc = myVC {
-        vc.urlStr = srcUrl
+        vc.m_urlStr = srcUrl
       }
     }
   }
@@ -46,17 +46,17 @@ class RNTBase: UIView
     guard let parentVC = parentViewController else {
       return
     }
-
+    
     let vc = BaseVC()
     parentVC.addChild(vc)
     addSubview(vc.view)
-    vc.urlStr = srcUrl
+    vc.m_urlStr = srcUrl
     vc.view.frame = bounds
     vc.didMove(toParent: parentVC)
     self.myVC = vc
   }
   
-
+  
 }
 
 
