@@ -23,7 +23,6 @@
 		46A9B20D0C7B4A0F93BEB29D /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EACA91125E843BBAAD84283 /* libCodePush.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		9767740D26FB4B7FAC9714EE /* libRCTWKWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49155BF181FE41A5AEB40661 /* libRCTWKWebView.a */; };
-		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		F90AD2C321D5C76000726E1F /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90AD2C221D5C76000726E1F /* Clock.swift */; };
 		F90AD2C521D5C77500726E1F /* Jigsaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90AD2C421D5C77500726E1F /* Jigsaw.swift */; };
 		F90AD2C721D5C78200726E1F /* RandomArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90AD2C621D5C78200726E1F /* RandomArray.swift */; };
@@ -41,6 +40,7 @@
 		F9D0F88E21B7D9FB00822BC4 /* RNTBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D0F88A21B7D9FB00822BC4 /* RNTBase.swift */; };
 		F9D0F88F21B7D9FB00822BC4 /* RNTBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D0F88B21B7D9FB00822BC4 /* RNTBaseManager.m */; };
 		F9D0F89021B7D9FB00822BC4 /* RNTMenuManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D0F88C21B7D9FB00822BC4 /* RNTMenuManager.m */; };
+		F9E24EF022C4D8E200BDF682 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		F9F1AC412192FC4C00C72A9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F1AC402192FC4C00C72A9E /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -379,7 +379,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
+				F9E24EF022C4D8E200BDF682 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
